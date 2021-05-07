@@ -10,7 +10,6 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
-    needs: test_lint
     strategy:
       matrix:
         node: [ '14', '13', '12' ]
