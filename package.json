@@ -11,7 +11,7 @@
     "scripts": {
         "test": "node dist/test/",
         "copy-files": "copyfiles -u 1 src/**/*.g4  dist/",
-        "build": "tsc && npm run copy-files && webpack",
+        "build": "webpack",
         "build-grammar": "antlr4ts -no-visitor -no-listener src/source/Vtl.g4 -o src/generated"
     },
     "author": "u/NicoLaval",
@@ -23,19 +23,22 @@
         "!dist/test/",
         "!dist/tsconfig.tsbuildinfo"
     ],
-    "keywords": [],
+    "keywords": [
+        "VTL",
+        "antlr"
+    ],
     "homepage": "https://github.com/NicoLaval/vtl-2-0-antlr-tools-ts",
     "devDependencies": {
         "@types/node": "^10.0.0",
+        "antlr4ts": "^0.5.0-alpha.4",
         "antlr4ts-cli": "^0.5.0-alpha.4",
         "copyfiles": "^2.4.1",
         "raw-loader": "^4.0.2",
+        "ts-loader": "^9.1.2",
         "typescript": "^4.1.5",
         "uglifyjs-webpack-plugin": "^2.2.0",
         "webpack": "^5.37.0",
         "webpack-cli": "^4.7.0"
     },
-    "dependencies": {
-        "antlr4ts": "^0.5.0-alpha.4"
-    }
+    "dependencies": {}
 }
