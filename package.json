@@ -10,31 +10,9 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "test": "node dist/test/",
-        "cdn:bundle:.js": "simplifyify dist/index.js -s vtl_2_0_antlr_tools_ts -o dist/bundle.js --debug --bundle",
-        "cdn:bundle:.min.js": "terser dist/bundle.js -cmo dist/bundle.min.js",
-        "cdn:bundle": "npm run cdn:bundle:.js && npm run cdn:bundle:.min.js",
-        "cdn:esm": "tsc -p tsconfig.esm.json",
-        "cdn": "npm run cdn:bundle && npm run cdn:esm",
-        "build": "tsc && npm run cdn",
-        "lint:check": "eslint . --ext .ts,.tsx",
-        "lint": "npm run lint:check -- --fix",
-        "_format": "prettier '**/*.{ts,tsx,json,md}'",
-        "format": "npm run _format -- --write",
-        "format:check": "npm run _format -- --list-different",
+        "copy-files": "copyfiles -u 1 src/**/*.g4  dist/",
+        "build": "tsc && npm run copy-files && webpack",
         "build-grammar": "antlr4ts -no-visitor -no-listener src/source/Vtl.g4 -o src/generated"
-    },
-    "lint-staged": {
-        "*.{ts,tsx}": [
-            "eslint --fix"
-        ],
-        "*.{ts,tsx,json,md}": [
-            "prettier --write"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged -v"
-        }
     },
     "author": "u/NicoLaval",
     "license": "MIT",
@@ -49,19 +27,13 @@
     "homepage": "https://github.com/NicoLaval/vtl-2-0-antlr-tools-ts",
     "devDependencies": {
         "@types/node": "^10.0.0",
-        "@typescript-eslint/eslint-plugin": "^4.15.1",
-        "@typescript-eslint/parser": "^4.15.1",
         "antlr4ts-cli": "^0.5.0-alpha.4",
-        "eslint": "^7.20.0",
-        "eslint-config-prettier": "^7.2.0",
-        "evt": "^1.8.11",
-        "husky": "^4.3.0",
-        "lint-staged": "^10.5.4",
-        "prettier": "^2.2.1",
+        "copyfiles": "^2.4.1",
         "raw-loader": "^4.0.2",
-        "simplifyify": "^8.0.3",
-        "terser": "^5.3.8",
-        "typescript": "^4.1.5"
+        "typescript": "^4.1.5",
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "webpack": "^5.37.0",
+        "webpack-cli": "^4.7.0"
     },
     "dependencies": {
         "antlr4ts": "^0.5.0-alpha.4"
