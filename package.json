@@ -1,38 +1,38 @@
 {
-    "name": "vtl-2-0-antlr-tools-ts",
-    "version": "0.0.0",
-    "description": "",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/NicoLaval/vtl-2-0-antlr-tools-ts.git"
-    },
-    "main": "dist/lib/index.js",
-    "types": "dist/lib/index.d.ts",
-    "scripts": {
-        "build-grammar": "cd src/lib/source && antlr4ts -no-visitor -no-listener Vtl.g4 -o ../generated",
-        "g4ToTs": "ts-node src/bin/g4toTs",
-        "build": "yarn build-grammar && yarn g4ToTs && tsc"
-    },
-    "author": "u/NicoLaval",
-    "license": "MIT",
-    "files": [
-        "src/",
-        "!src/test/",
-        "dist/",
-        "!dist/test/",
-        "!dist/tsconfig.tsbuildinfo"
-    ],
-    "keywords": [
-        "VTL",
-        "antlr"
-    ],
-    "homepage": "https://github.com/NicoLaval/vtl-2-0-antlr-tools-ts",
-    "devDependencies": {
-        "@types/node": "^15.0.2",
-        "antlr4ts": "^0.5.0-alpha.4",
-        "antlr4ts-cli": "^0.5.0-alpha.4",
-        "ts-node": "^9.1.1",
-        "typescript": "^4.1.5"
-    },
-    "dependencies": {}
+  "name": "vtl-2-0-antlr-tools-ts",
+  "version": "0.1.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NicoLaval/vtl-2-0-antlr-tools-ts.git"
+  },
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "build-grammar": "cd src/lib/source && antlr4ts -no-visitor -no-listener Vtl.g4 -o ../generated",
+    "g4ToTs": "ts-node src/bin/g4toTs",
+    "build": "yarn build-grammar && yarn g4ToTs && tsc"
+  },
+  "author": "u/NicoLaval",
+  "license": "MIT",
+  "files": [
+    "src/",
+    "!src/test/",
+    "dist/",
+    "!dist/test/",
+    "!dist/tsconfig.tsbuildinfo"
+  ],
+  "keywords": [
+    "VTL",
+    "antlr"
+  ],
+  "homepage": "https://github.com/NicoLaval/vtl-2-0-antlr-tools-ts",
+  "devDependencies": {
+    "@types/node": "^15.0.2",
+    "antlr4ts": "^0.5.0-alpha.4",
+    "antlr4ts-cli": "^0.5.0-alpha.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {}
 }
