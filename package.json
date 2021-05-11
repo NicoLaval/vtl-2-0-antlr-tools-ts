@@ -1,6 +1,6 @@
 {
   "name": "vtl-2-0-antlr-tools-ts",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "scripts": {
-    "build-grammar": "cd src/lib && antlr4ts -no-visitor -no-listener Vtl.g4 -o ../generated",
+    "build-grammar": "cd src/lib && antlr4ts -no-visitor -no-listener Vtl.g4 -o ./generated",
     "g4ToTs": "ts-node src/bin/g4toTs",
     "build": "yarn build-grammar && yarn g4ToTs && tsc"
   },
